@@ -1,0 +1,24 @@
+  public int majorityElement(int[] nums) {
+    	int benchNum = nums.length / 2;
+    	
+    	Map<Integer, Integer> ha = new HashMap<Integer, Integer>();
+    	    	
+
+    	for (int eachNum : nums) {	
+    		if(!ha.containsKey(eachNum)) {
+    	    	int counter = 0;
+    			counter++;
+    			ha.put(eachNum, counter);
+    			if(counter>benchNum) {
+    				return eachNum;
+    			}
+    		}
+    		else {
+    			ha.put(eachNum, ha.get(eachNum)+1);
+    			if (ha.get(eachNum)>benchNum) {
+    				return eachNum;
+    			}
+    		}
+    	}
+    	return -1;
+      }
